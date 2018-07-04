@@ -195,24 +195,110 @@ public class Game {
 		choice4.setText("Ignore");
 		
 	}
+	//First encounter options!
 	public void examineTheFrontDoor() {
 		position = "examineFrontTheDoor";
 		mainTextArea.setText("You open the door and stare fearlessly at the \n troubled man. \n Strange Man: HELP ! HELP! They're \n EVERYWHERE. The Ding Drogs are invading \n our city.");
-		
-		choice1.setText("Help");
+		choice1.setText("Leave");
 		choice2.setText("Attack");
-		choice3.setText("Question ");
-		choice4.setText("Ignore");
+		choice3.setText("..");
+		choice4.setText("..");
 				
 	}
 	public void attackTheStranger() {
 		position = "attackTheStranger";
-		mainTextArea.setText("You attack the stranger and he falls down. He brushes himself off then walks away. You close the door and proceed to meditate. ");		
-		choice1.setText("Meditate More");
-		choice2.setText("Call Someone");
-		choice3.setText("Look out the window ");
-		choice4.setText("Sleep");
+		mainTextArea.setText("You attack the stranger and he falls down. He \nbrushes himself off then walks away. You close \nthe door and proceed to meditate. ");		
+		choice1.setText("Leave");
+		choice2.setText("..");
+		choice3.setText("..");
+		choice4.setText("..");
 				
+	}
+	public void questionTheStranger() {
+		position = "questionTheStranger";
+		mainTextArea.setText("You ask, 'Why should I help? I was peacefully \nminding my business.' \nStranger: 'There's no time to ask questions! Come with me.' ");		
+		choice1.setText("Leave");
+		choice2.setText("..");
+		choice3.setText("..");
+		choice4.setText("..");
+				
+	}
+	public void ignoreTheStranger() {
+		position = "ignoreTheStranger";
+		mainTextArea.setText("You ignore the stranger and close the door. The stranger walks away and moments later a weird force opens the door. ");		
+		choice1.setText("Leave");
+		choice2.setText("..");
+		choice3.setText("..");
+		choice4.setText("..");
+				
+	}
+	//Second encounter options. You're practically forced to leave the home to explore. 
+	public void leaveTheStranger() {
+		position = "leaveTheStranger";
+		mainTextArea.setText("You are brought between a two path crossroads. Which way do you wish to go? West or East? ");		
+		choice1.setText("Go West");
+		choice2.setText("Go East");
+		choice3.setText("..");
+		choice4.setText("..");
+	}
+	public void enterMarket() {
+		position = "enterMarket";
+		mainTextArea.setText("Which item do you wish to purchase?");		
+		choice1.setText("Buy 1 HP potion");
+		choice2.setText("Buy Small Sword");
+		choice3.setText("Buy Small Mallet");
+		choice4.setText("Buy Ninja Stars");
+	}
+	//Third encounter. If chosen West or East. Also this is the default 2 path crossroad encounter. 
+	public void eastWay1() {
+		position = "eastWay1";
+		mainTextArea.setText("You decided to go east. You are later encountered by a dark cloud like spirit. What do want to do..? ");		
+		choice1.setText("Run !");
+		choice2.setText("Question");
+		choice3.setText("Challenge");
+		choice4.setText("..");
+	}
+	public void westWay1() {
+		position = "westWay1";
+		mainTextArea.setText("You decided to go west. You stumble across a old man. What do you want to do..?");		
+		choice1.setText("Ignore");
+		choice2.setText("Question");
+		choice3.setText("Steal");
+		choice4.setText("..");
+	}
+	
+	//Market options (Everytime you buy an item you will spawn to either a two path crossroads or three path crossroads)
+	public void buyHpPotion() {
+		position = "buyHpPotion";
+		mainTextArea.setText("You have successfully purchase x1 Hp Potion.");		
+		choice1.setText("Leave");
+		choice2.setText("..");
+		choice3.setText("..");
+		choice4.setText("..");
+	}
+	public void buySmallSword() {
+		position = "buySmallSword";
+		mainTextArea.setText("You have successfully purchase a Small Sword.");		
+		choice1.setText("Leave");
+		choice2.setText("..");
+		choice3.setText("..");
+		choice4.setText("..");
+	}
+	public void buySmallMallet() {
+		position = "buySmallMallet";
+		mainTextArea.setText("You have successfully purchase a Small Mallet.");		
+		choice1.setText("Leave");
+		choice2.setText("..");
+		choice3.setText("..");
+		choice4.setText("..");
+	}
+	public void buyNinjaStars() {
+		position = "buyNinjaStars";
+		mainTextArea.setText("You have successfully purchase Ninja Stars.");		
+		choice1.setText("Leave");
+		choice2.setText("..");
+		choice3.setText("..");
+		choice4.setText("..");
 	}
 	 
 	//class created to add function to the start button so it can process the game screen.
@@ -229,15 +315,135 @@ public class Game {
 			
 			//finish making the case statements. Video Stopped at 17:52 P5.
 			switch(position) {
+			//Intro
 			case "theCity":
 				switch(yourChoice) {
 				case "c1": examineTheFrontDoor(); 
 				break;
 				case "c2": attackTheStranger();
 				break;
-					
-				}
+				case "c3": questionTheStranger();
+				break;
+				case "c4": ignoreTheStranger();
+				}break;
+				
+			//First Encounter..
+			case "attackTheStranger()":
+				switch(yourChoice) {
+				case "c1": leaveTheStranger();
+				break;
+				case "c2": 
+				break;
+				case "c3":
+				break;
+				case "c4":
+				break;
+				}break;
+				
+			case "examineFrontTheDoor":
+				switch(yourChoice) {
+				case "c1": leaveTheStranger();
+				break;
+				case "c2": attackTheStranger();
+				break;
+				case "c3":
+				break;
+				case "c4":
+				break;
+				}break;
+				
+			case "questionTheStranger":
+				switch(yourChoice) {
+				case "c1": leaveTheStranger();
+				break;
+				case "c2": enterMarket();
+				break;
+				case "c3": 
+				break;
+				case "c4":
+				break;
+				}break;
+				
+			case "enterMarket":
+				switch(yourChoice) {
+				case "c1": buyHpPotion();
+				break;
+				case "c2": buySmallSword();
+					weapon = "Small Sword";
+					weaponLabelName.setText(weapon);
+				break;
+				case "c3": buySmallMallet();
+					weapon = "Mallet";
+					weaponLabelName.setText(weapon);
+				break;
+				case "c4": buyNinjaStars();
+					weapon = "NinjaStars";
+					weaponLabelName.setText(weapon);
+				break;
+				}break;
+				//Market encounter. (2 path crossroad afterwards)
+			case "buyHpPotion":
+				switch(yourChoice) {
+				case "c1": leaveTheStranger();
+				break;
+				case "c2": 
+				break;
+				case "c3": 
+				break;
+				case "c4":
+				break;
+				}break;
 			
+			case "buySmallSword":
+				switch(yourChoice) {
+				case "c1": leaveTheStranger();
+				break;
+				case "c2": 
+				break;
+				case "c3": 
+				break;
+				case "c4":
+				break;
+				}break;
+				
+			case "buySmallMallet":
+				switch(yourChoice) {
+				case "c1": leaveTheStranger();
+				break;
+				case "c2": 
+				break;
+				case "c3": 
+				break;
+				case "c4":
+				break;
+				}break;
+				
+			case "buyNinjaStars":
+				switch(yourChoice) {
+				case "c1": leaveTheStranger();
+				break;
+				case "c2": 
+				break;
+				case "c3": 
+				break;
+				case "c4":
+				break;
+				}break;
+				
+				//End of Market encounter
+				
+			case "leaveTheStranger" :
+				switch(yourChoice) {
+				case "c1": westWay1();
+				break;
+				case "c2": eastWay1();
+				break;
+				case "c3":
+				break;
+				case "c4":
+				break;
+				}break;
+				
 			}
 			
 		}
